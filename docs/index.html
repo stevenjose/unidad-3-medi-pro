@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examen Sencer: Unitat 3 - Els Animals</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4fbf7;
+        color: #2c3e50;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1 {
+        text-align: center;
+        color: #1b4f72;
+        background-color: #a3e4d7;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 5px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #566573;
+        font-size: 1.1em;
+        margin-bottom: 30px;
+      }
+      .question-card {
+        background: white;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        border-left: 6px solid #2ecc71;
+      }
+      .question-category {
+        font-size: 0.85em;
+        text-transform: uppercase;
+        color: #7f8c8d;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .question-title {
+        font-weight: bold;
+        font-size: 1.15em;
+        margin-bottom: 15px;
+        color: #2c3e50;
+      }
+      label {
+        display: block;
+        margin-bottom: 12px;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ebf5fb;
+        transition: all 0.2s;
+      }
+      label:hover {
+        background-color: #e8f8f5;
+        border-color: #a3e4d7;
+      }
+      input[type="radio"] {
+        margin-right: 12px;
+        transform: scale(1.3);
+        vertical-align: middle;
+      }
+      button {
+        display: block;
+        width: 100%;
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 18px;
+        font-size: 1.3em;
+        font-weight: bold;
+        border-radius: 12px;
+        cursor: pointer;
+        margin-top: 30px;
+        box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3);
+        transition:
+          background 0.3s,
+          transform 0.1s;
+      }
+      button:hover {
+        background-color: #219a52;
+      }
+      button:active {
+        transform: scale(0.98);
+      }
+      #result-container {
+        display: none;
+        margin-top: 30px;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .score {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .feedback {
+        margin-top: 25px;
+        text-align: left;
+      }
+      .feedback-item {
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid;
+      }
+      .correct-item {
+        background-color: #e8f8f5;
+        border-left-color: #2ecc71;
+        color: #196f3d;
+      }
+      .incorrect-item {
+        background-color: #fce4d6;
+        border-left-color: #e67e22;
+        color: #a04000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📝 Super Examen: Descobrir els animals (Unitat 3)</h1>
+    <div class="subtitle">
+      Posa't a prova amb aquest examen complet de tota la unitat. Llegeix amb
+      calma!
+    </div>
+
+    <form id="quiz-form">
+      <!-- Pregunta 1 -->
+      <div class="question-card">
+        <div class="question-category">LES FUNCIONS VITALS [cite: 3, 4]</div>
+        <div class="question-title">
+          1. Quines són les tres funcions vitals que fan tots els animals?
+        </div>
+        <label
+          ><input type="radio" name="q1" value="a" /> Menjar, respirar i
+          viatjar.</label
+        >
+        <label
+          ><input type="radio" name="q1" value="b" /> Creixement, moviment i
+          alimentació.</label
+        >
+        <label
+          ><input type="radio" name="q1" value="c" /> Nutrició, relació i
+          reproducció.[cite: 3, 4]</label
+        >
+      </div>
+
+      <!-- Pregunta 2 -->
+      <div class="question-card">
+        <div class="question-category">LA NUTRICIÓ [cite: 3]</div>
+        <div class="question-title">
+          2. Com es classifiquen els animals segons el tipus d'aliment que
+          prenen?
+        </div>
+        <label
+          ><input type="radio" name="q2" value="a" /> Herbívors, carnívors i
+          omnívors.[cite: 3]</label
+        >
+        <label
+          ><input type="radio" name="q2" value="b" /> Terrestres, aeris i
+          aquàtics.</label
+        >
+        <label
+          ><input type="radio" name="q2" value="c" /> Vivípars, ovípars i
+          asexuals.</label
+        >
+      </div>
+
+      <!-- Pregunta 3 -->
+      <div class="question-card">
+        <div class="question-category">LA NUTRICIÓ [cite: 3]</div>
+        <div class="question-title">3. Què menja un animal omnívor?</div>
+        <label
+          ><input type="radio" name="q3" value="a" /> S'alimenta només de
+          plantes i herba.[cite: 3]</label
+        >
+        <label
+          ><input type="radio" name="q3" value="b" /> S'alimenta només d'altres
+          animals.[cite: 3]</label
+        >
+        <label
+          ><input type="radio" name="q3" value="c" /> S'alimenta tant de plantes
+          com d'altres animals.[cite: 3]</label
+        >
+      </div>
+
+      <!-- Pregunta 4 -->
+      <div class="question-card">
+        <div class="question-category">LA RESPIRACIÓ [cite: 3, 8]</div>
+        <div class="question-title">
+          4. Com prenen l'oxigen de l'aigua els peixos o les larves d'amfibi?
+        </div>
+        <label
+          ><input type="radio" name="q4" value="a" /> Amb els pulmons.</label
+        >
+        <label
+          ><input type="radio" name="q4" value="b" /> Amb les brànquies, unes
+          petites làmines en contacte amb l'aigua.[cite: 3, 8]</label
+        >
+        <label
+          ><input type="radio" name="q4" value="c" /> Directament a través de
+          les aletes.</label
+        >
+      </div>
+
+      <!-- Pregunta 5 -->
+      <div class="question-card">
+        <div class="question-category">LA RESPIRACIÓ [cite: 3]</div>
+        <div class="question-title">
+          5. Els dofins viuen a l'aigua i són bons bussejadors, però han de
+          sortir a la superfície per respirar. Com respiren?
+        </div>
+        <label><input type="radio" name="q5" value="a" /> Amb brànquies.</label>
+        <label
+          ><input type="radio" name="q5" value="b" /> Amb pulmons, prenent
+          l'oxigen de l'aire.[cite: 3]</label
+        >
+        <label
+          ><input type="radio" name="q5" value="c" /> Amb la pell nua.</label
+        >
+      </div>
+
+      <!-- Pregunta 6 -->
+      <div class="question-card">
+        <div class="question-category">LA RELACIÓ [cite: 4]</div>
+        <div class="question-title">
+          6. A on envien la informació els òrgans dels sentits dels animals
+          perquè la interpreti i hi doni una resposta adequada?
+        </div>
+        <label><input type="radio" name="q6" value="a" /> Al cor.</label>
+        <label
+          ><input type="radio" name="q6" value="b" /> Al cervell.[cite:
+          4]</label
+        >
+        <label><input type="radio" name="q6" value="c" /> Als músculs.</label>
+      </div>
+
+      <!-- Pregunta 7 -->
+      <div class="question-card">
+        <div class="question-category">LA REPRODUCCIÓ [cite: 4]</div>
+        <div class="question-title">
+          7. Com es produeix la reproducció asexual?
+        </div>
+        <label
+          ><input type="radio" name="q7" value="a" /> Hi intervé un sol
+          progenitor, com quan a partir del braç d'una estrella de mar es forma
+          una altra de sencera.[cite: 4]</label
+        >
+        <label
+          ><input type="radio" name="q7" value="b" /> Hi intervenen una femella
+          i un mascle.[cite: 4]</label
+        >
+        <label
+          ><input type="radio" name="q7" value="c" /> Es produeix mitjançant la
+          posta d'ous al terra.[cite: 7]</label
+        >
+      </div>
+
+      <!-- Pregunta 8 -->
+      <div class="question-card">
+        <div class="question-category">LA REPRODUCCIÓ [cite: 4]</div>
+        <div class="question-title">
+          8. Quin és el grup d'animals que neixen de l'interior del ventre de la
+          mare?
+        </div>
+        <label><input type="radio" name="q8" value="a" /> Els ovípars.</label>
+        <label><input type="radio" name="q8" value="b" /> Els asexuals.</label>
+        <label
+          ><input type="radio" name="q8" value="c" /> Els vivípars.[cite:
+          4]</label
+        >
+      </div>
+
+      <!-- Pregunta 9 -->
+      <div class="question-card">
+        <div class="question-category">ELS ANIMALS VERTEBRATS [cite: 5]</div>
+        <div class="question-title">
+          9. Quina és la característica comuna de tots els animals vertebrats?
+        </div>
+        <label
+          ><input type="radio" name="q9" value="a" /> Tenen la pell coberta de
+          plomes.</label
+        >
+        <label
+          ><input type="radio" name="q9" value="b" /> Tenen un esquelet intern
+          format per ossos amb una columna vertebral.[cite: 5]</label
+        >
+        <label
+          ><input type="radio" name="q9" value="c" /> No tenen ossos ni columna
+          vertebral.</label
+        >
+      </div>
+
+      <!-- Pregunta 10 -->
+      <div class="question-card">
+        <div class="question-category">ELS ANIMALS VERTEBRATS [cite: 5]</div>
+        <div class="question-title">
+          10. En quines tres parts es distingeix el cos dels vertebrats?
+        </div>
+        <label
+          ><input type="radio" name="q10" value="a" /> Cap, tronc i
+          extremitats.</label
+        >
+        <label
+          ><input type="radio" name="q10" value="b" /> Cap, tronc i cua.[cite:
+          5]</label
+        >
+        <label
+          ><input type="radio" name="q10" value="c" /> Cap, tòrax i
+          abdomen.</label
+        >
+      </div>
+
+      <!-- Pregunta 11 -->
+      <div class="question-card">
+        <div class="question-category">ELS MAMÍFERS [cite: 5]</div>
+        <div class="question-title">
+          11. Per què els mamífers reben aquest nom?
+        </div>
+        <label
+          ><input type="radio" name="q11" value="a" /> Perquè s'alimenten de la
+          llet que produeix la mare a les mames.[cite: 5]</label
+        >
+        <label
+          ><input type="radio" name="q11" value="b" /> Perquè viuen a la
+          muntanya.</label
+        >
+        <label
+          ><input type="radio" name="q11" value="c" /> Perquè tots tenen quatre
+          potes i orelles al cap.[cite: 5]</label
+        >
+      </div>
+
+      <!-- Pregunta 12 -->
+      <div class="question-card">
+        <div class="question-category">ELS MAMÍFERS [cite: 6]</div>
+        <div class="question-title">
+          12. Quin animal és l'únic mamífer que pon ous?
+        </div>
+        <label><input type="radio" name="q12" value="a" /> L'esquirol.</label>
+        <label
+          ><input type="radio" name="q12" value="b" /> L'ornitorrinc.[cite:
+          6]</label
+        >
+        <label><input type="radio" name="q12" value="c" /> La balena.</label>
+      </div>
+
+      <!-- Pregunta 13 -->
+      <div class="question-card">
+        <div class="question-category">ELS OCELLS [cite: 7]</div>
+        <div class="question-title">
+          13. Quina és la característica que permet distingir el cos dels
+          ocells?
+        </div>
+        <label
+          ><input type="radio" name="q13" value="a" /> Tenen el cos cobert de
+          plomes, dues ales, dues potes i un bec dur.[cite: 7]</label
+        >
+        <label
+          ><input type="radio" name="q13" value="b" /> Tenen la pell humida i
+          nua.</label
+        >
+        <label
+          ><input type="radio" name="q13" value="c" /> Tenen quatre aletes i
+          escates.</label
+        >
+      </div>
+
+      <!-- Pregunta 14 -->
+      <div class="question-card">
+        <div class="question-category">ELS RÈPTILS [cite: 7]</div>
+        <div class="question-title">
+          14. Com es desplacen i quina coberta tenen la majoria de rèptils?
+        </div>
+        <label
+          ><input type="radio" name="q14" value="a" /> Volen i estan coberts de
+          plomes.</label
+        >
+        <label
+          ><input type="radio" name="q14" value="b" /> Es desplacen arrossegant
+          la panxa pel terra i estan coberts d'escates.[cite: 7]</label
+        >
+        <label
+          ><input type="radio" name="q14" value="c" /> Neden i tenen la pell
+          nua.</label
+        >
+      </div>
+
+      <!-- Pregunta 15 -->
+      <div class="question-card">
+        <div class="question-category">ELS AMFIBIS [cite: 8]</div>
+        <div class="question-title">
+          15. Com respiren els amfibis des que són larves fins que són adults?
+        </div>
+        <label
+          ><input type="radio" name="q15" value="a" /> Sempre respiren per
+          pulmons.</label
+        >
+        <label
+          ><input type="radio" name="q15" value="b" /> Sempre respiren per
+          brànquies.</label
+        >
+        <label
+          ><input type="radio" name="q15" value="c" /> De petites larves
+          respiren per brànquies a l'aigua i d'adults per pulmons a la
+          terra.[cite: 8]</label
+        >
+      </div>
+
+      <!-- Pregunta 16 -->
+      <div class="question-card">
+        <div class="question-category">ELS PEIXOS [cite: 8]</div>
+        <div class="question-title">
+          16. Quines característiques ajuden els peixos a desplaçar-se i
+          protegir-se a l'aigua?
+        </div>
+        <label
+          ><input type="radio" name="q16" value="a" /> Tenen potes i
+          plomes.</label
+        >
+        <label
+          ><input type="radio" name="q16" value="b" /> Tenen aletes per
+          desplaçar-se i el cos cobert d'escates.[cite: 8]</label
+        >
+        <label
+          ><input type="radio" name="q16" value="c" /> Tenen la pell nua i
+          humida.</label
+        >
+      </div>
+
+      <!-- Pregunta 17 -->
+      <div class="question-card">
+        <div class="question-category">ELS ANIMALS INVERTEBRATS [cite: 2]</div>
+        <div class="question-title">
+          17. Quin d'aquests és un grup d'animals invertebrats?
+        </div>
+        <label
+          ><input type="radio" name="q17" value="a" /> Artròpodes, equinoderms,
+          mol·luscs, cucs, meduses i esponges.[cite: 2]</label
+        >
+        <label
+          ><input type="radio" name="q17" value="b" /> Mamífers, ocells i
+          peixos.</label
+        >
+        <label
+          ><input type="radio" name="q17" value="c" /> Amfibis i rèptils.</label
+        >
+      </div>
+
+      <!-- Pregunta 18 -->
+      <div class="question-card">
+        <div class="question-category">ELS INSECTES [cite: 9]</div>
+        <div class="question-title">
+          18. Com tenen dividit el cos els insectes?
+        </div>
+        <label
+          ><input type="radio" name="q18" value="a" /> Cap, tronc i
+          extremitats.</label
+        >
+        <label
+          ><input type="radio" name="q18" value="b" /> Cap, tòrax i
+          abdomen.[cite: 9]</label
+        >
+        <label
+          ><input type="radio" name="q18" value="c" /> Cap, tronc i cua.</label
+        >
+      </div>
+
+      <!-- Pregunta 19 -->
+      <div class="question-card">
+        <div class="question-category">ELS INSECTES [cite: 9]</div>
+        <div class="question-title">
+          19. Quina d'aquestes combinacions de parts de l'anatomia és pròpia
+          dels insectes?
+        </div>
+        <label
+          ><input type="radio" name="q19" value="a" /> Quatre potes i
+          cap.</label
+        >
+        <label
+          ><input type="radio" name="q19" value="b" /> Sis potes, dues antenes i
+          sovint dues o quatre ales.[cite: 9]</label
+        >
+        <label
+          ><input type="radio" name="q19" value="c" /> Moltes potes i cap
+          closca.</label
+        >
+      </div>
+
+      <!-- Pregunta 20 -->
+      <div class="question-card">
+        <div class="question-category">EL TALLER DE CIÈNCIES [cite: 1]</div>
+        <div class="question-title">
+          20. Per a què serveix un "quadern de camp"?
+        </div>
+        <label
+          ><input type="radio" name="q20" value="a" /> És un llibre que
+          llegeixen els científics per descansar.</label
+        >
+        <label
+          ><input type="radio" name="q20" value="b" /> És una eina on s'anoten
+          observacions dels animals, del temps i les plantes, acompanyades de
+          dibuixos.[cite: 1]</label
+        >
+        <label
+          ><input type="radio" name="q20" value="c" /> És una llibreta per
+          dibuixar només insectes a la classe.</label
+        >
+      </div>
+
+      <button type="button" onclick="corregirExamen()">
+        Corregir l'examen sencer
+      </button>
+    </form>
+
+    <div id="result-container">
+      <h2>Resultat Final de la Unitat</h2>
+      <div class="score" id="score-display"></div>
+      <div class="feedback" id="feedback-display"></div>
+    </div>
+
+    <script>
+      const respCorrectes = {
+        q1: "c",
+        q2: "a",
+        q3: "c",
+        q4: "b",
+        q5: "b",
+        q6: "b",
+        q7: "a",
+        q8: "c",
+        q9: "b",
+        q10: "b",
+        q11: "a",
+        q12: "b",
+        q13: "a",
+        q14: "b",
+        q15: "c",
+        q16: "b",
+        q17: "a",
+        q18: "b",
+        q19: "b",
+        q20: "b",
+      };
+
+      const explicacions = {
+        q1: "Les tres funcions vitals dels animals són nutrició, relació i reproducció.[cite: 3, 4]",
+        q2: "Segons el que mengen, els animals es divideixen en herbívors, carnívors i omnívors.[cite: 3]",
+        q3: "Els omnívors s'alimenten tant de plantes com d'altres animals (com ara els humans, els porcs o els gossos).[cite: 3]",
+        q4: "Els animals aquàtics (o les larves d'amfibi d'aigua dolça) utilitzen les brànquies per agafar l'oxigen de l'aigua.[cite: 3, 8]",
+        q5: "Els dofins són mamífers i, per tant, respiren aire amb pulmons a la superfície, no tenen brànquies.[cite: 3, 5]",
+        q6: "Els sentits envien la informació al cervell perquè l'interpreti i hi doni una resposta adequada.[cite: 4]",
+        q7: "La reproducció asexual no necessita dos progenitors; un sol animal, com l'estrella de mar, pot donar lloc a un altre de sencer.[cite: 4]",
+        q8: "Els vivípars es desenvolupen dins del ventre de la mare fins al moment de néixer, a diferència dels ovípars (ous).[cite: 4]",
+        q9: "Els vertebrats es reconeixen per un esquelet intern de l'organisme format per ossos amb una columna vertebral.[cite: 5]",
+        q10: "El cos dels animals vertebrats es distingeix clarament en tres parts: cap, tronc i cua.[cite: 5]",
+        q11: "S'anomenen mamífers perquè les seves cries s'alimenten de la llet que mamen directament de la mare.[cite: 5]",
+        q12: "L'ornitorrinc és un cas únic i curiós de mamífer perquè és l'únic que es reprodueix mitjançant ous (ovípar).[cite: 6]",
+        q13: "Els ocells tenen el cos adaptat al vol, cobert de plomes, amb dues ales, dues potes i un bec dur.[cite: 7]",
+        q14: "La majoria de rèptils es desplacen a ras de terra (arrossegant la panxa o rèptant) i el seu cos està ple d'escates.[cite: 7]",
+        q15: "Els amfibis pateixen canvis canviant d'hàbitat i respiració: brànquies quan són petites larves i pulmons d'adults.[cite: 8]",
+        q16: "Les aletes els permeten guiar-se i moure's en l'aigua, i tenen la pell coberta d'escates per protecció.[cite: 8]",
+        q17: "Aquests grans grups d'invertebrats no tenen esquelet intern ni columna vertebral.[cite: 2]",
+        q18: "El cos de qualsevol insecte es divideix sempre en tres segments o parts: cap, tòrax i abdomen.[cite: 9]",
+        q19: "Els insectes tenen com a tret comú sis potes, dues antenes i sovint ales en algunes d'aquestes fases.[cite: 9]",
+        q20: "El quadern de camp és l'eina utilitzada pels naturalistes i zoòlegs per apuntar i dibuixar tot el que observen a la natura.[cite: 1]",
+      };
+
+      function corregirExamen() {
+        let puntuacio = 0;
+        let feedbackHTML =
+          "<h3>Repàs de les teves respostes per a l'estudi:</h3>";
+        const form = document.getElementById("quiz-form");
+
+        for (let i = 1; i <= 20; i++) {
+          const pregunta = "q" + i;
+          const opcions = form.elements[pregunta];
+          let respost = false;
+          let valorResposta = "";
+
+          for (let j = 0; j < opcions.length; j++) {
+            if (opcions[j].checked) {
+              respost = true;
+              valorResposta = opcions[j].value;
+              break;
+            }
+          }
+
+          if (!respost) {
+            alert(
+              "Ep! T'has oblidat de respondre la pregunta " +
+                i +
+                ". Revisa-ho abans de lliurar l'examen.",
+            );
+            return;
+          }
+
+          if (valorResposta === respCorrectes[pregunta]) {
+            puntuacio++;
+            feedbackHTML += `
+                        <div class="feedback-item correct-item">
+                            <strong>Pregunta ${i}: Correcte!</strong> - ${explicacions[pregunta]}
+                        </div>`;
+          } else {
+            feedbackHTML += `
+                        <div class="feedback-item incorrect-item">
+                            <strong>Pregunta ${i}: Incorrecte.</strong> - Cal repassar: ${explicacions[pregunta]}
+                        </div>`;
+          }
+        }
+
+        document.getElementById("quiz-form").style.display = "none";
+        const resultContainer = document.getElementById("result-container");
+        const scoreDisplay = document.getElementById("score-display");
+        const feedbackDisplay = document.getElementById("feedback-display");
+
+        resultContainer.style.display = "block";
+        scoreDisplay.textContent = `La teva nota final és: ${puntuacio} / 20`;
+
+        if (puntuacio >= 18) {
+          scoreDisplay.style.color = "#27ae60";
+          scoreDisplay.innerHTML +=
+            "<br>🌟 Excel·lent! Ets tot un expert en animals!";
+        } else if (puntuacio >= 10) {
+          scoreDisplay.style.color = "#f39c12";
+          scoreDisplay.innerHTML +=
+            "<br>👍 Bona feina! Has aprovat, però repassa els errors per treure millor nota.";
+        } else {
+          scoreDisplay.style.color = "#e74c3c";
+          scoreDisplay.innerHTML +=
+            "<br>📚 Cal repassar una mica més! Segur que la propera vegada ho faràs millor.";
+        }
+
+        feedbackDisplay.innerHTML = feedbackHTML;
+        window.scrollTo(0, 0);
+      }
+    </script>
+  </body>
+</html>
